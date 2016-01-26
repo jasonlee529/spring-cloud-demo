@@ -5,7 +5,8 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- SpringMVC的配置文件-2015年6月14日15:45:54 -->
-
+	
+	
 	<!-- 对转向页面的路径解析。prefix：前缀， suffix：后缀 -->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
