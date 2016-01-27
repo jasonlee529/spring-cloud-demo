@@ -26,7 +26,7 @@
 		<!-- 不管设成 /shopping.do 还是设成 /shopping ，或者 /shopping.htm ，效果都是一样的， flowController 
 			都会去找 id 为 shopping的flow来执行 -->
 		<property name="mappings">
-			<value> /shopping.do=flowController </value>
+			<value> **/shopping.do=flowController </value>
 		</property>
 		<property name="defaultHandler">
 			<!-- UrlFilenameViewController 会将 "/index" 这样的请求映射成名为 "index" 的视图 -->
@@ -34,7 +34,7 @@
 		</property>
 	</bean>
 	<!-- 我们只要明白 FlowController 可根据客户端请求的结尾部分，找出相应的 flow 来执行。配置 FlowController只需指定FlowExecutor即可 -->
-	<bean id="flowController" class="org.springframework.webflow.mvc.servlet.FlowController">
+	<bean id="flowController" class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
 		<property name="flowExecutor" ref="flowExecutor" />
 	</bean>
 </beans>
