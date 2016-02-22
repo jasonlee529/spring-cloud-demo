@@ -13,7 +13,7 @@
 
 	<description>Spring公共配置 </description>
 	
-	<bean id="braveKnight" class="cn.hebut.lee.spring.core.bean.BraveKnight">
+	<bean id="braveKnight" class="cn.hebut.lee.spring.core.bean.BraveKnight" lazy-init="false">
 		<constructor-arg ref ="quest"></constructor-arg>
 	</bean>
 	
