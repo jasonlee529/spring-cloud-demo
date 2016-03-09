@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CollectionRefTrap {
-	
+
 	public static void main(String[] args) {
 		List<Bean> beans = new ArrayList<Bean>();
 		Bean a = new Bean("A");
@@ -16,18 +16,17 @@ public class CollectionRefTrap {
 		beans.add(a);
 		beans.add(b);
 		beans.add(c);
-		for(Bean bean : beans){
-			System.out.println(bean);
-		}
+		a.setName("A1");
+		a = new Bean("A2");
+		a.setName("A3");
 		System.out.println("========分割线 ===========");
-		a.setName("a1");
-		for(Bean bean : beans){
+		for (Bean bean : beans) {
 			System.out.println(bean);
 		}
 	}
 }
 
-class Bean{
+class Bean {
 	private String name;
 
 	public String getName() {
@@ -47,5 +46,5 @@ class Bean{
 	public String toString() {
 		return "Bean [name=" + name + "]";
 	}
-	
+
 }
