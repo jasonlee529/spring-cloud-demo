@@ -2,8 +2,8 @@
     <wb-module deploy-name="spring-core">
         <wb-resource deploy-path="/" source-path="/target/m2e-jee/web-resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-        <wb-resource deploy-path="/" source-path="/WebRoot" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapps" tag="defaultRootSource"/>
         <property name="context-root" value="spring-core"/>
         <property name="java-output-path" value="/spring-core/target/classes"/>
     </wb-module>
