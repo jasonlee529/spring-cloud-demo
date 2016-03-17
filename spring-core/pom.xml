@@ -13,6 +13,16 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
+
+		<!-- junit test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- end junit test -->
+
 		<!-- java mail -->
 		<dependency>
 			<groupId>javax.mail</groupId>
@@ -20,7 +30,7 @@
 			<version>1.4.7</version>
 		</dependency>
 		<!-- end java mail -->
-		
+
 		<!-- velocity jar -->
 		<dependency>
 			<groupId>org.apache.velocity</groupId>
@@ -28,7 +38,7 @@
 			<version>1.7</version>
 		</dependency>
 		<!-- end velocity -->
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
