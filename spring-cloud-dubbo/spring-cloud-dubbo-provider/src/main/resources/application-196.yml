@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      url: jdbc:log4jdbc:mysql://192.168.1.196:33072/web_security_4.0?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: 1qaz@WSX
+      max-active: 10
+      min-idle: 0
+      validation-query: select 1
+      test-on-borrow: true
+  redis:
+    host: 192.168.1.174
+    port: 6379
+    password:
+    lettuce:
+      pool:
+        max-active: 8
+        min-idle: 0
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.196:8848
+dubbo:
+  registry:
+    address: eureka://192.168.1.196:1111
+  protocol:
+    name: dubbo
+    port: 20880
+eureka:
+  client:
+    service-url: 192.168.1.196:1111

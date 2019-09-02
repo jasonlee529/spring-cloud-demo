@@ -1,0 +1,20 @@
+server:
+  port: 8086
+  servlet:
+    context-path: "/dubbo-consumer"
+spring:
+  application:
+    name: dubbo-consumer
+dubbo:
+  application:
+    name: dubbo-consumer
+  registry:
+    address: eureka://192.168.1.196:1111
+  scan:
+    base-packages: com.lee.jason.dubbo.consumer
+  dubbo:
+    protocol:
+      port: 30880
+eureka:
+  client:
+    enabled: false
