@@ -1,16 +1,17 @@
 package cn.lee.jason.dubbo.provider.service;
 
-import cn.lee.jason.api.entity.User;
-import cn.lee.jason.api.service.UserService;
+import cn.lee.jason.dubbo.api.entity.User;
+import cn.lee.jason.dubbo.api.service.UserService;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.Pageable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     public boolean save(User user) {
@@ -29,7 +30,7 @@ public class UserServiceImpl implements UserService {
         return userList;
     }
 
-    public Page<User> findPage(Pageable pageable, Map map) {
+    public Page<User> findPage(PageRequest pageable, Map map) {
         List<User> userList = findAll();
         Page<User> page = new PageImpl<User>(userList, pageable, 2L);
         return page;

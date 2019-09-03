@@ -1,4 +1,4 @@
-package cn.lee.jason.api.entity;
+package cn.lee.jason.dubbo.api.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
