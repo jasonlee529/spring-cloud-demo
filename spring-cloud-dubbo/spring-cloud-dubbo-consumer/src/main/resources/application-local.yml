@@ -1,0 +1,25 @@
+server:
+  port: 8086
+  servlet:
+    context-path: "/dubbo-consumer"
+spring:
+  application:
+    name: dubbo-consumer
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+dubbo:
+  protocol:
+    host: localhost
+    port: -1
+  registry:
+    address: spring-cloud://localhost:8848
+  cloud:
+    subscribed-services: dubbo-provider
+eureka:
+  client:
+    enabled: false
+
