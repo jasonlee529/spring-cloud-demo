@@ -15,18 +15,18 @@ import java.util.Map;
 @RestController
 @RequestMapping("user")
 public class UserController {
-    @Reference(version = "1.j")
+    @Reference(version = "1.0")
     private UserService userService;
 
 
-    @PutMapping()
-    public boolean save(@RequestBody User user) {
+    @PutMapping("{id}")
+    public User save(@PathVariable Long id,@RequestBody User user) {
         userService.save(user);
-        return true;
+        return user;
     }
 
     @DeleteMapping("{userId}")
-    public boolean remove(@PathVariable Long userId) {
+    public Booleand remove(@PathVariable Long userId) {
         userService.remove(userId);
         return true;
     }
