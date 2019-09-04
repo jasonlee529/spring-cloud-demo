@@ -1,0 +1,27 @@
+#dubbo:
+#  protocol:
+#    name: dubbo
+#    port: -1
+#    host: localhost
+#  registry:
+#    address:  spring-cloud://localhost:1111
+#  monitor:
+#    default: false
+#  scan:
+#    base-packages: cn.lee.jason.dubbo.provider
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${eureka.client.registry[0].hostname}:${eureka.client.registry[0].port}/eureka/
+    registry[0]:
+      hostname: localhost
+      port: 1111
+server:
+  port: 8085
+  servlet:
+    context-path: "/dubbo-provider"
+spring:
+  application:
+    name: dubbo-provider
+  main:
+    allow-bean-definition-overriding: true

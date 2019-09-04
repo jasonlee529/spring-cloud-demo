@@ -1,0 +1,29 @@
+dubbo:
+  protocol:
+    port: -1
+    host: localhost
+    serialization: kryo
+    optimizer: cn.lee.jason.dubbo.api.SerializationOptimizerImpl
+  registry:
+    address:  spring-cloud://192.168.1.196:8848
+  monitor:
+
+    default: false
+  scan:
+    base-packages: cn.lee.jason.dubbo.provider
+eureka:
+  client:
+    enabled: false
+server:
+  port: 8085
+  servlet:
+    context-path: "/dubbo-provider"
+spring:
+  application:
+    name: dubbo-provider
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.196:8848
