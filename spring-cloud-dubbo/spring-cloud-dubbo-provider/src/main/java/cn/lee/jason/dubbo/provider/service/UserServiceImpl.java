@@ -2,10 +2,10 @@ package cn.lee.jason.dubbo.provider.service;
 
 import cn.lee.jason.dubbo.api.entity.User;
 import cn.lee.jason.dubbo.api.service.UserService;
+import cn.lee.jason.dubbo.api.util.PageDefault;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
 import java.util.ArrayList;
@@ -41,5 +41,15 @@ public class UserServiceImpl implements UserService {
         return page;
     }
 
+    public Page<User> findPage(Pageable pageable) {
+        List<User> userList = findAll();
+        Page<User> page = new PageImpl<User>(userList, pageable, 2L);
+        return page;
+    }
 
+    public Page<User> findPage(Map params) {
+        List<User> userList = findAll();
+        Page<User> page = new PageImpl<User>(userList, new PageDefault(), 2L);
+        return page;
+    }
 }

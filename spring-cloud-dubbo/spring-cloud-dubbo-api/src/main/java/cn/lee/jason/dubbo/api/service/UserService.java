@@ -18,4 +18,8 @@ public interface UserService {
     List<User> findAll();
 
     Page<User> findPage(Pageable pageable, Map params);
+
+    Page<User> findPage(Pageable pageable);
+
+    Page<User> findPage(Map params);
 }

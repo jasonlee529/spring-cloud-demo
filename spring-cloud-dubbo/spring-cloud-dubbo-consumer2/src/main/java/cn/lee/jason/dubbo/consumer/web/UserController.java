@@ -15,7 +15,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("user")
 public class UserController {
-    @Reference
+    @Reference(version = "1.j")
     private UserService userService;
 
 

@@ -2,7 +2,6 @@ package cn.lee.jason.dubbo.consumer.web;
 
 import cn.lee.jason.dubbo.api.entity.User;
 import cn.lee.jason.dubbo.api.service.UserService;
-import cn.lee.jason.dubbo.api.util.PageDefault;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -17,7 +16,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("user")
 public class UserController {
-    @Reference(version = "1.0")
+    @Reference(version = "1.0", protocol = "dubbo")
     private UserService userService;
 
 
@@ -46,10 +45,23 @@ public class UserController {
 
     @GetMapping("page")
     public Page<User> findPage(HttpServletRequest request) {
-        Pageable pageable = new PageDefault();
+        Pageable pageable = PageRequest.of(1, 10);
         Map params = WebUtils.getParametersStartingWith(request, "");
         return userService.findPage(pageable, params);
     }
 
+    @GetMapping("page2")
+    public Page<User> findPage2(HttpServletRequest request) {
+        Pageable pageable = PageRequest.of(1, 10);
+        Map params = WebUtils.getParametersStartingWith(request, "");
+        return userService.findPage(pageable);
+    }
+
+    @GetMapping("page3")
+    public Page<User> findPage3(HttpServletRequest request) {
+        Pageable pageable = PageRequest.of(1, 10);
+        Map params = WebUtils.getParametersStartingWith(request, "");
+        return userService.findPage(params);
+    }
 
 }

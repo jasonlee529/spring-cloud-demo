@@ -13,8 +13,10 @@ spring:
         server-addr: 192.168.1.196:8848
 dubbo:
   protocol:
-    host: localhost
     port: -1
+    host: localhost
+    serialization: kryo
+    optimizer: cn.lee.jason.dubbo.api.SerializationOptimizerImpl
   registry:
     address: spring-cloud://192.168.1.196:8848
   cloud:
